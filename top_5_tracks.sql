@@ -1,0 +1,7 @@
+Provide a query that shows the top 5 most purchased tracks over all.
+select t.Name, count(il.trackId) as invoice_track_count
+from InvoiceLine il
+join Track t on t.TrackId = il.TrackId
+group by il.trackId
+order by invoice_track_count desc
+limit 5;
